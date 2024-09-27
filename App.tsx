@@ -7,6 +7,7 @@
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
+import { NativeModules } from 'react-native';
 import {
   SafeAreaView,
   ScrollView,
@@ -29,8 +30,11 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
+function Section({children, title }: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  var MyNativePackage = NativeModules.MyNativePackage;
+  console.log(NativeModules);
+  console.log(MyNativePackage?.showToast);
   return (
     <View style={styles.sectionContainer}>
       <Text
